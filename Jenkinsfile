@@ -19,6 +19,13 @@ pipeline {
             }
         }
         
+        stage('Requirements installation') {
+            steps {
+                sh 'pip install -r requirements.txt'
+                echo "Requirements installation done..."
+            }
+        }
+        
         stage('Task 1') {
             steps {
                 sh 'python3 py_filter_csv.py obs_misc-bookkeeper-operator-0.1.9-107-8c4f6b6-custom-report.csv'
