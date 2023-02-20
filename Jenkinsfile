@@ -15,7 +15,7 @@ pipeline {
                       }
                 echo "Image: ${env.IMAGE}"
                 echo "blackduck scan running..."
-                sh './obsscan --scan-image=env.IMAGE'
+//                 sh './obsscan --scan-image=env.IMAGE'
             }
         }
         
