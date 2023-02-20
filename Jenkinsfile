@@ -1,6 +1,9 @@
 pipeline {
     agent any
-
+//     agent{
+//         label 'IP_address'
+//     }
+    
     stages {
         stage('Blackduck scan') {
             steps {
@@ -12,7 +15,7 @@ pipeline {
                       }
                 echo "Image: ${env.IMAGE}"
                 echo "blackduck scan running..."
-                
+                sh './obsscan --scan-image=env.IMAGE'
             }
         }
         
