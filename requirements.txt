@@ -1,0 +1,7 @@
+pandas
+requests
+lxml
+xlrd==1.2.0
+openpyxl
+html5lib
+BeautifulSoup4
