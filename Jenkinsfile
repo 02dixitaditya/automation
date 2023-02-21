@@ -18,7 +18,7 @@ pipeline {
                                                       name: 'Image')]
                       }
                 script {
-                 file_name = "obs_misc"+env.IMAGE+"custom_report"
+                 file_name = "obs_misc-"+env.IMAGE+"-custom-report.csv"
             }  
                 echo "Image: ${env.IMAGE}"
                 echo "blackduck scan running..."
@@ -30,19 +30,19 @@ pipeline {
             }
         }
         
-//         stage('Requirements installation') {
-//             steps {
-//                 sh 'pip install -r requirements.txt'
-//                 echo "Requirements installation done..."
-//             }
-//         }
+        stage('Requirements installation') {
+            steps {
+                sh 'pip install -r requirements.txt'
+                echo "Requirements installation done..."
+            }
+        }
         
-//         stage('Task 1') {
-//             steps {
-//                 sh 'python3 py_filter_csv.py obs_misc-bookkeeper-operator-0.1.9-107-8c4f6b6-custom-report.csv'
-//                 echo "xyz_filtered.csv and xyz-report.csv created..."
-//             }
-//         }
+        stage('Task 1') {
+            steps {
+                sh "python3 py_filter_csv.py ${file_name}"
+                echo "xyz_filtered.csv and xyz-report.csv created..."
+            }
+        }
         
 //         stage('Task 2') {
 //             steps {
