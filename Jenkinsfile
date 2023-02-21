@@ -18,15 +18,13 @@ pipeline {
                                                       name: 'Image')]
                       }
                 script {
-                 file_name = "obs_misc-"+env.IMAGE+"-custom-report.csv"
-            }  
+                      file_name = "obs_misc-"+env.IMAGE+"-custom-report.csv"
+                      }  
                 echo "Image: ${env.IMAGE}"
                 echo "blackduck scan running..."
                 echo "${file_name}"
-//                 sh 'curl -LO https://asdrepo.isus.emc.com:443/artifactory/devsvcs-config-local/obsscan && chmod 755 obsscan'
-//                 sh "./obsscan --scan-image=${env.IMAGE}"
-//                 workspace = env.WORKSPACE
-//                 echo "Current workspace is ${env.WORKSPACE}"
+                sh 'curl -LO https://asdrepo.isus.emc.com:443/artifactory/devsvcs-config-local/obsscan && chmod 755 obsscan'
+                sh "./obsscan --scan-image=${env.IMAGE}"
             }
         }
         
