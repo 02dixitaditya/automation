@@ -4,9 +4,9 @@ pipeline {
 //         label 'IP_address'
 //     }
     
-    environment {
-        FILE_NAME = "obs_misc"+${env.IMAGE}+"custom-report.csv"
-    }
+//     environment {
+//         FILE_NAME = "obs_misc"+${env.IMAGE}+"custom-report.csv"
+//     }
     
     stages {
         stage('Blackduck scan') {
@@ -17,9 +17,12 @@ pipeline {
                                                       description: '',
                                                       name: 'Image')]
                       }
+                script {
+                 file_name = "obs_misc"+${env.IMAGE}+"custom-report.csv"
+            }  
                 echo "Image: ${env.IMAGE}"
                 echo "blackduck scan running..."
-                echo "$FILE_NAME"
+                echo "$file_name"
 //                 sh 'curl -LO https://asdrepo.isus.emc.com:443/artifactory/devsvcs-config-local/obsscan && chmod 755 obsscan'
 //                 sh "./obsscan --scan-image=${env.IMAGE}"
 //                 workspace = env.WORKSPACE
