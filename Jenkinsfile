@@ -4,6 +4,10 @@ pipeline {
 //         label 'IP_address'
 //     }
     
+    environment {
+        FILE_NAME = "obs_misc"+${env.IMAGE}+"custom-report.csv"
+    }
+    
     stages {
         stage('Blackduck scan') {
             steps {
@@ -15,8 +19,7 @@ pipeline {
                       }
                 echo "Image: ${env.IMAGE}"
                 echo "blackduck scan running..."
-                def NAME = "obs_misc"+${env.IMAGE}+"custom-report.csv"
-                echo "$NAME"
+                echo "$FILE_NAME"
 //                 sh 'curl -LO https://asdrepo.isus.emc.com:443/artifactory/devsvcs-config-local/obsscan && chmod 755 obsscan'
 //                 sh "./obsscan --scan-image=${env.IMAGE}"
 //                 workspace = env.WORKSPACE
