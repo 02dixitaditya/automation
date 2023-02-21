@@ -18,7 +18,7 @@ pipeline {
                                                       name: 'Image')]
                       }
                 script {
-                 file_name = "obs_misc"
+                 file_name = "obs_misc"+env.IMAGE+"custom_report"
             }  
                 echo "Image: ${env.IMAGE}"
                 echo "blackduck scan running..."
