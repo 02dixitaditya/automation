@@ -15,7 +15,7 @@ pipeline {
                       }
                 echo "Image: ${env.IMAGE}"
                 echo "blackduck scan running..."
-                NAME = "obs_misc"+${env.IMAGE}+"custom-report.csv"
+                def NAME = "obs_misc"+${env.IMAGE}+"custom-report.csv"
                 echo "$NAME"
 //                 sh 'curl -LO https://asdrepo.isus.emc.com:443/artifactory/devsvcs-config-local/obsscan && chmod 755 obsscan'
 //                 sh "./obsscan --scan-image=${env.IMAGE}"
