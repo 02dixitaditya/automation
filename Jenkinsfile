@@ -17,6 +17,8 @@ pipeline {
                 echo "blackduck scan running..."
                 sh 'ls'
                 sh 'pwd'
+                sh 'pwd -L'
+                sh 'pwd -P'
                 sh 'cd blackduck'
                 sh 'curl -LO https://asdrepo.isus.emc.com:443/artifactory/devsvcs-config-local/obsscan && chmod 755 obsscan'
                 sh './obsscan --scan-image=env.IMAGE'
