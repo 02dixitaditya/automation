@@ -16,8 +16,8 @@ pipeline {
                 echo "Image: ${env.IMAGE}"
                 echo "blackduck scan running..."
                 sh 'curl -LO https://asdrepo.isus.emc.com:443/artifactory/devsvcs-config-local/obsscan && chmod 755 obsscan'
-//                 sh './obsscan --scan-image=${env.IMAGE}'
-                sh './obsscan --scan-image=${params.Image}'
+                sh './obsscan --scan-image=devops-repo.isus.emc.com:8116/nautilus/jupyter/base-notebook:5ae537728c69-with-sample
+//                 sh './obsscan --scan-image=${params.Image}'
 //                 workspace = env.WORKSPACE
 //                 echo "Current workspace is ${env.WORKSPACE}"
             }
